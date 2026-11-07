@@ -1,0 +1,261 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Student or Teacher account profile in EQUILIBRAIN",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Firebase Auth UID of the user",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "description": "User's verified email address",
+          "maxLength": 128
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the student or educator",
+          "maxLength": 100
+        },
+        "role": {
+          "type": "string",
+          "description": "Account role",
+          "enum": ["student", "teacher", "admin"]
+        },
+        "school": {
+          "type": "string",
+          "description": "School or institution name",
+          "maxLength": 150
+        },
+        "gradeClass": {
+          "type": "string",
+          "description": "Grade and class name (e.g. XI MIPA 1)",
+          "maxLength": 50
+        },
+        "avatar": {
+          "type": "string",
+          "description": "Avatar URL or preset identifier",
+          "maxLength": 300
+        },
+        "progress": {
+          "type": "number",
+          "description": "Overall curriculum progress percentage"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Server timestamp of creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Server timestamp of last update"
+        }
+      },
+      "required": ["id", "email", "name", "role", "createdAt", "updatedAt"]
+    },
+    "ModuleProgress": {
+      "title": "ModuleProgress",
+      "description": "Tracks progress for an individual sub-chapter module",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Module progress document identifier",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner user UID",
+          "maxLength": 128
+        },
+        "moduleId": {
+          "type": "string",
+          "description": "Module identifier (e.g. mod-1)",
+          "maxLength": 64
+        },
+        "isCompleted": {
+          "type": "boolean",
+          "description": "Whether all 5E phases of this module are completed"
+        },
+        "isUnlocked": {
+          "type": "boolean",
+          "description": "Whether the module is unlocked"
+        },
+        "lastVisitedPhase": {
+          "type": "string",
+          "description": "Latest phase accessed",
+          "maxLength": 64
+        },
+        "completedPhases": {
+          "type": "array",
+          "description": "List of completed 5E phase IDs"
+        },
+        "quizScore": {
+          "type": "number",
+          "description": "Score achieved in the formative quiz"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp of last progress update"
+        }
+      },
+      "required": ["id", "userId", "moduleId", "isCompleted", "updatedAt"]
+    },
+    "ELKPDSubmission": {
+      "title": "ELKPDSubmission",
+      "description": "Student work and data tables on electronic worksheets",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Submission identifier",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner user UID",
+          "maxLength": 128
+        },
+        "meetingNumber": {
+          "type": "number",
+          "description": "Sub-chapter or module index"
+        },
+        "answers": {
+          "type": "object",
+          "description": "Key-value map of worksheet input responses"
+        },
+        "submittedAt": {
+          "type": "string",
+          "description": "Timestamp of initial submission"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp of last modification"
+        }
+      },
+      "required": ["id", "userId", "meetingNumber", "submittedAt", "updatedAt"]
+    },
+    "CERSubmission": {
+      "title": "CERSubmission",
+      "description": "Scientific Toulmin argumentation submission",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Submission identifier",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner user UID",
+          "maxLength": 128
+        },
+        "moduleId": {
+          "type": "string",
+          "description": "Module identifier",
+          "maxLength": 64
+        },
+        "topicTitle": {
+          "type": "string",
+          "description": "Argumentation topic title",
+          "maxLength": 200
+        },
+        "claim": {
+          "type": "string",
+          "description": "Scientific claim",
+          "maxLength": 1000
+        },
+        "data": {
+          "type": "string",
+          "description": "Empirical evidence or data",
+          "maxLength": 2000
+        },
+        "warrant": {
+          "type": "string",
+          "description": "Reasoning warrant linking data to claim",
+          "maxLength": 2000
+        },
+        "backing": {
+          "type": "string",
+          "description": "Theoretical backing/chemical laws",
+          "maxLength": 2000
+        },
+        "qualifier": {
+          "type": "string",
+          "description": "Scope and boundary qualification",
+          "maxLength": 1000
+        },
+        "rebuttal": {
+          "type": "string",
+          "description": "Anticipated rebuttal or exception",
+          "maxLength": 1500
+        },
+        "submittedAt": {
+          "type": "string",
+          "description": "Timestamp of submission"
+        }
+      },
+      "required": ["id", "userId", "moduleId", "claim", "submittedAt"]
+    },
+    "ReflectionItem": {
+      "title": "ReflectionItem",
+      "description": "Metacognitive learning reflection diary",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Reflection identifier",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner user UID",
+          "maxLength": 128
+        },
+        "moduleId": {
+          "type": "string",
+          "description": "Module identifier",
+          "maxLength": 64
+        },
+        "conceptualUnderstanding": {
+          "type": "string",
+          "description": "Student reflection on concepts learned",
+          "maxLength": 2000
+        },
+        "difficultyRating": {
+          "type": "number",
+          "description": "Student perceived difficulty (1 to 5)"
+        },
+        "submittedAt": {
+          "type": "string",
+          "description": "Timestamp of reflection entry"
+        }
+      },
+      "required": ["id", "userId", "moduleId", "conceptualUnderstanding", "submittedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profile and account details"
+    },
+    "/users/{userId}/moduleProgress/{moduleId}": {
+      "schema": "ModuleProgress",
+      "description": "Stores user sub-chapter module progress"
+    },
+    "/users/{userId}/elkpdSubmissions/{submissionId}": {
+      "schema": "ELKPDSubmission",
+      "description": "Stores student e-LKPD worksheet answers"
+    },
+    "/users/{userId}/cerSubmissions/{cerId}": {
+      "schema": "CERSubmission",
+      "description": "Stores student Toulmin argument submissions"
+    },
+    "/users/{userId}/reflections/{reflectionId}": {
+      "schema": "ReflectionItem",
+      "description": "Stores student metacognitive reflections"
+    }
+  }
+}

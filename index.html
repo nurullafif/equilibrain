@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EQUILIBRAIN - Web Modular Kesetimbangan Kimia & AI Literacy</title>
+    <meta name="description" content="Web Modular Kesetimbangan Kimia: AI Literacy dan Argumentasi Ilmiah Berbasis Socio-Scientific Issues (SSI) untuk Siswa Kelas XI SMA/Fase F." />
+    <meta property="og:title" content="EQUILIBRAIN - Web Modular Kesetimbangan Kimia & AI Literacy" />
+    <meta property="og:description" content="Web Modular Kesetimbangan Kimia: AI Literacy dan Argumentasi Ilmiah Berbasis Socio-Scientific Issues (SSI) untuk Siswa Kelas XI SMA/Fase F." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function() {
+        try {
+          var t = localStorage.getItem('themePreference');
+          var isDark = t === 'dark' || (t !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-teal-100 selection:text-teal-900 transition-colors duration-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

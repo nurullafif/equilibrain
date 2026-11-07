@@ -1,0 +1,6 @@
+{
+  "name": "EQUILIBRAIN - Chemistry Learning Environment",
+  "description": "Web Modular Kesetimbangan Kimia: AI Literacy dan Argumentasi Ilmiah Berbasis Socio-Scientific Issues (SSI) untuk Siswa Kelas XI SMA/Fase F.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
